@@ -201,25 +201,34 @@ with open("diagnosticity_results.json", "w") as f:
 for k, v in results.items():
     print(k, "=", v)
 
-# --- Figure ---
-fig, axes = plt.subplots(1, 2, figsize=(11, 4.4))
+# --- Figure (manuscript Fig. 2): no in-figure title; panel letters only ---
+plt.rcParams.update({
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Arial", "Helvetica", "Liberation Sans", "DejaVu Sans"],
+    "font.size": 8, "axes.labelsize": 8, "xtick.labelsize": 8, "ytick.labelsize": 8,
+    "legend.fontsize": 7, "axes.linewidth": 0.6,
+})
+fig, axes = plt.subplots(1, 2, figsize=(6.9, 2.9))
 
 bins = np.linspace(-0.2, 1.0, 13)
 axes[0].hist(I8_null, bins=bins, alpha=0.55, label="Null", color="#999999")
 axes[0].hist(I8_artif, bins=bins, alpha=0.55, label="Artifact (confound)", color="#dd8c1e")
 axes[0].hist(I8_struct, bins=bins, alpha=0.55, label="Structure (real effect)", color="#2f6ca2")
-axes[0].set_title(f"(a) 8 naive transformations:\nstructure and artifact overlap\n(AUC structure-vs-artifact = {auc8_struct_vs_artif:.3f})")
-axes[0].set_xlabel("Invariance Score  I")
-axes[0].legend(fontsize=8)
+axes[0].set_xlabel("Invariance Score I (8 naive transformations)")
+axes[0].set_ylabel("Number of candidates")
+axes[0].legend(loc="upper right", frameon=False)
+axes[0].text(-0.16, 1.02, "a", transform=axes[0].transAxes, fontsize=10, fontweight="bold")
 
 zbins = np.linspace(-3.5, 4.5, 17)
 axes[1].hist(z9_null, bins=zbins, alpha=0.55, label="Null", color="#999999")
 axes[1].hist(z9_artif, bins=zbins, alpha=0.55, label="Artifact (confound)", color="#dd8c1e")
 axes[1].hist(z9_struct, bins=zbins, alpha=0.55, label="Structure (real effect)", color="#2f6ca2")
-axes[1].set_title(f"(b) the diagnostic transformation T9 alone:\nartifact separates from structure\n(AUC structure-vs-artifact = {auc_z9alone_struct_vs_artif:.3f})")
-axes[1].set_xlabel("z-score on T9")
-axes[1].legend(fontsize=8)
+axes[1].set_xlabel("z-score on diagnostic transformation T9")
+axes[1].set_ylabel("Number of candidates")
+axes[1].legend(loc="upper right", frameon=False)
+axes[1].text(-0.16, 1.02, "b", transform=axes[1].transAxes, fontsize=10, fontweight="bold")
 
 plt.tight_layout()
-plt.savefig("figure_diagnosticity.png", dpi=200)
+plt.savefig("figure_diagnosticity.png", dpi=600)
+plt.savefig("figure_diagnosticity.pdf")
 print("Figure saved.")

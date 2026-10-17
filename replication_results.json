@@ -1,0 +1,86 @@
+{
+  "n_seeds": 2000,
+  "n_group": 250,
+  "rows": [
+    {
+      "quantity": "Section 5: flat Invariance Score, 8 naive transformations",
+      "seed42": 0.410136,
+      "mean": 0.500350964,
+      "sd": 0.025544009435633393,
+      "p2_5": 0.4509326,
+      "p97_5": 0.5506322,
+      "exact": 0.4999999999999999,
+      "seed42_percentile": 0.0
+    },
+    {
+      "quantity": "Section 5: flat Invariance Score, 8 naive + T9 (unweighted)",
+      "seed42": 0.460448,
+      "mean": 0.550137632,
+      "sd": 0.025374300827960362,
+      "p2_5": 0.5012252,
+      "p97_5": 0.6012846000000001,
+      "exact": 0.5495549998897773,
+      "seed42_percentile": 0.05
+    },
+    {
+      "quantity": "Section 5: single best specification",
+      "seed42": 0.446848,
+      "mean": 0.499885504,
+      "sd": 0.025607119283530985,
+      "p2_5": 0.4513084,
+      "p97_5": 0.5502459999999999,
+      "exact": 0.5,
+      "seed42_percentile": 1.7999999999999998
+    },
+    {
+      "quantity": "Section 5: T9 alone",
+      "seed42": 0.760896,
+      "mean": 0.7376013679999999,
+      "sd": 0.0217942959004294,
+      "p2_5": 0.6922716,
+      "p97_5": 0.779064,
+      "exact": 0.7377408598934618,
+      "seed42_percentile": 85.85000000000001
+    },
+    {
+      "quantity": "Section 5: I8 + T9 logistic combination (in-sample)",
+      "seed42": 0.775488,
+      "mean": 0.738729664,
+      "sd": 0.02183722365264256,
+      "p2_5": 0.6945884,
+      "p97_5": 0.7796324,
+      "exact": null,
+      "seed42_percentile": 96.25
+    },
+    {
+      "quantity": "Section 4: single observation (structure vs null)",
+      "seed42": 0.73352,
+      "mean": 0.760717592,
+      "sd": 0.020815741319320638,
+      "p2_5": 0.7207992,
+      "p97_5": 0.8004976,
+      "exact": 0.7602499389065233,
+      "seed42_percentile": 9.3
+    },
+    {
+      "quantity": "Section 4: binary Invariance Score (structure vs null)",
+      "seed42": 0.86452,
+      "mean": 0.887277028,
+      "sd": 0.01377134405284128,
+      "p2_5": 0.8589838,
+      "p97_5": 0.9128966000000001,
+      "exact": null,
+      "seed42_percentile": 5.2
+    },
+    {
+      "quantity": "Section 4: continuous Invariance Score (structure vs null)",
+      "seed42": 0.945168,
+      "mean": 0.9584168160000001,
+      "sd": 0.00793145000840085,
+      "p2_5": 0.9426188,
+      "p97_5": 0.9726244000000001,
+      "exact": null,
+      "seed42_percentile": 5.35
+    }
+  ]
+}

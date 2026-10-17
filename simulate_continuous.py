@@ -54,7 +54,7 @@ def auc_rank(scores, labels):
 
 def roc_curve_manual(scores, labels):
     thresholds = np.sort(np.unique(scores))[::-1]
-    tpr_list, fpr_list = [1.0], [1.0]
+    tpr_list, fpr_list = [0.0], [0.0]
     P = labels.sum(); N = len(labels) - P
     for t in thresholds:
         pred = scores >= t
@@ -62,7 +62,6 @@ def roc_curve_manual(scores, labels):
         fp = ((pred == 1) & (labels == 0)).sum()
         tpr_list.append(tp / P)
         fpr_list.append(fp / N)
-    tpr_list.append(0.0); fpr_list.append(0.0)
     return np.array(fpr_list), np.array(tpr_list)
 
 
@@ -141,16 +140,22 @@ print("\nSweep (continuous vs binary):")
 for r in sweep_rows:
     print(r)
 
-# --- Figure: ROC comparison, three curves ---
-fig, ax = plt.subplots(figsize=(5.6, 4.6))
-ax.plot(fpr_base, tpr_base, label=f"Single observation (AUC={auc_baseline:.3f})", color="#dd8c1e", linewidth=2)
-ax.plot(fpr_bin, tpr_bin, label=f"Binary Invariance Score (AUC={auc_binary:.3f})", color="#8fa8bf", linewidth=2)
-ax.plot(fpr_con, tpr_con, label=f"Continuous Invariance Score (AUC={auc_continuous:.3f})", color="#2f6ca2", linewidth=2.5)
-ax.plot([0, 1], [0, 1], "--", color="#999999", linewidth=1)
+# --- Figure (manuscript Fig. 1): ROC comparison, three curves; no in-figure title ---
+plt.rcParams.update({
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Arial", "Helvetica", "Liberation Sans", "DejaVu Sans"],
+    "font.size": 8, "axes.labelsize": 8, "xtick.labelsize": 8, "ytick.labelsize": 8,
+    "legend.fontsize": 7, "axes.linewidth": 0.6,
+})
+fig, ax = plt.subplots(figsize=(3.9, 3.4))
+ax.plot(fpr_base, tpr_base, label=f"Single observation (AUC = {auc_baseline:.3f})", color="#dd8c1e", linewidth=1.5)
+ax.plot(fpr_bin, tpr_bin, label=f"Binary Invariance Score (AUC = {auc_binary:.3f})", color="#8fa8bf", linewidth=1.5)
+ax.plot(fpr_con, tpr_con, label=f"Continuous Invariance Score (AUC = {auc_continuous:.3f})", color="#2f6ca2", linewidth=1.8)
+ax.plot([0, 1], [0, 1], "--", color="#999999", linewidth=0.8)
 ax.set_xlabel("False positive rate")
 ax.set_ylabel("True positive rate")
-ax.set_title("Continuous persistence further improves detection")
-ax.legend(fontsize=8, loc="lower right")
+ax.legend(loc="lower right", frameon=False)
 plt.tight_layout()
-plt.savefig("figure_continuous.png", dpi=200)
+plt.savefig("figure_continuous.png", dpi=600)
+plt.savefig("figure_continuous.pdf")
 print("Figure saved: figure_continuous.png")
