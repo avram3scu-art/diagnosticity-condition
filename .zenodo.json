@@ -1,0 +1,10 @@
+{
+  "title": "diagnosticity-condition: code for The Diagnosticity Condition",
+  "upload_type": "software",
+  "creators": [
+    {"name": "Avramescu, Adrian N.", "affiliation": "Independent researcher"}
+  ],
+  "description": "Simulation and exact analytic validation code for The Diagnosticity Condition: A Dilution Theorem for Persistence-Based Evidence. Seed 42, fully reproducible, no real-world data. Includes a 2,000-seed replication.",
+  "license": "MIT",
+  "keywords": ["reproducibility", "poisson-binomial", "persistence-based evidence", "robustness analysis"]
+}
