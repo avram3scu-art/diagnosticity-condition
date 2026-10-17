@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "diagnosticity-condition"
+type: software
+authors:
+  - family-names: "Avramescu"
+    given-names: "Adrian N."
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+version: "1.0.0"
+date-released: "2026-10-17"
+doi: "10.5281/zenodo.23432737"
+license: MIT
+repository-code: "https://github.com/avram3scu-art/diagnosticity-condition"
+abstract: "Exact simulation and analytic validation code for The Diagnosticity Condition: A Dilution Theorem for Persistence-Based Evidence. Seed=42, fully reproducible, no real-world data."
+keywords:
+  - reproducibility
+  - poisson-binomial
+  - persistence-based evidence
