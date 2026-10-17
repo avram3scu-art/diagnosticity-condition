@@ -6,8 +6,10 @@ authors:
   - family-names: "Avramescu"
     given-names: "Adrian N."
     affiliation: "Independent researcher"
+    orcid: "https://orcid.org/0009-0005-1393-5264"
 version: "1.0.1"
 date-released: "2026-10-17"
+doi: "10.5281/zenodo.23440654"
 license: MIT
 repository-code: "https://github.com/avram3scu-art/diagnosticity-condition"
 abstract: "Simulation and exact analytic validation code for The Diagnosticity Condition: A Dilution Theorem for Persistence-Based Evidence. Seed 42, fully reproducible, no real-world data."
