@@ -1,7 +1,7 @@
 """
-The Diagnosticity Condition -- revised simulation (v0.8), seed=42, fully reproducible.
+The Diagnosticity Condition -- simulation and exact analytic validation, seed=42, fully reproducible.
 
-CHANGE FROM v0.6/v0.7: the original auc_rank() used ordinal (stable-sort) ranks.
+NOTE ON TIE HANDLING: an earlier version of auc_rank() used ordinal (stable-sort) ranks.
 For a discrete, heavily-tied statistic -- the Invariance Score I is a sum of 8 or 9
 binary indicators, so it takes only 9 or 10 distinct values -- ordinal ranking under
 a stable sort assigns tied observations ranks in their ORIGINAL array order. Because
@@ -172,7 +172,7 @@ dilution_factor = float(1.0 / np.sqrt(1.0 + V_nondiag / V_diag))
 
 results = {
     "seed": SEED, "n_group": N_GROUP, "mu_structure": MU_STRUCTURE,
-    "tie_handling": "average (mid-rank); corrected from ordinal in v0.6/v0.7",
+    "tie_handling": "average (mid-rank); corrects an earlier ordinal-rank implementation",
     "mean_I8_structure": float(I8_struct.mean()),
     "mean_I8_artifact": float(I8_artif.mean()),
     "mean_I8_null": float(I8_null.mean()),
