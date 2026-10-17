@@ -1,19 +1,19 @@
 """
-Invariance Thesis v0.5 -- continuous persistence simulation (seed=42, fully reproducible)
+The Diagnosticity Condition -- baseline demonstration with a continuous
+persistence indicator (seed=42, fully reproducible).
 
-Extends the v0.4 binary-survival demonstration by replacing the binary
+Extends the binary-survival demonstration by replacing the binary
 persistence indicator P(Ti) in {0,1} with a continuous relaxation
 P(Ti) in [0,1], defined as a smooth (logistic) function of distance
-from the same per-transformation detection threshold used in v0.4.
-This does NOT use knowledge of the true effect size in its construction
-(it is computable from data alone), so it remains a fair, non-circular
-comparison against the binary version.
+from the same per-transformation detection threshold used in the binary
+version. It does NOT use knowledge of the true effect size in its
+construction (it is computable from data alone), so it remains a fair,
+non-circular comparison against the binary version.
 
 No real-world data is used. This script demonstrates only that the
 continuous relaxation of the Invariance Score outperforms the binary
-version on synthetic data with a known ground truth, exactly as the
-binary version (v0.4, Section 6) outperformed single-observation
-detection.
+version on synthetic data with a known ground truth, just as the binary
+version outperforms single-observation detection.
 """
 import numpy as np
 import json
@@ -71,7 +71,7 @@ z_s, surv_b_s, surv_c_s = simulate_group(N_GROUP, TRUE_EFFECT, N_TRANSFORM, SIGM
 z_n, surv_b_n, surv_c_n = simulate_group(N_GROUP, 0.0, N_TRANSFORM, SIGMA, rng)
 _, surv_b_surr, surv_c_surr = simulate_group(N_NULL_SURROGATES, 0.0, N_TRANSFORM, SIGMA, rng)
 
-# Binary I and ZI (reproducing v0.4 primary configuration, same seed/path)
+# Binary I and ZI (primary configuration, same seed/path)
 I_b_s = surv_b_s.mean(1); I_b_n = surv_b_n.mean(1)
 mu_b = surv_b_surr.mean(1).mean(); sd_b = surv_b_surr.mean(1).std(ddof=1)
 ZI_b_s = (I_b_s - mu_b) / sd_b; ZI_b_n = (I_b_n - mu_b) / sd_b
@@ -109,7 +109,7 @@ with open("results_continuous.json", "w") as f:
 for k, v in results.items():
     print(k, "=", v)
 
-# Robustness sweep, binary vs continuous, same grid as v0.4
+# Robustness sweep, binary vs continuous
 sweep_rows = []
 for eff in [0.6, 0.8, 0.9, 1.0, 1.1]:
     for n_t in [5, 8]:
