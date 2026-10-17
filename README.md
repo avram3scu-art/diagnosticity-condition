@@ -1,10 +1,14 @@
 # The Diagnosticity Condition
+[
 
+![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23432737.svg)
+
+](https://doi.org/10.5281/zenodo.23432737)
 Simulation and analytic-validation code for:
 
-> Avramescu, A. N. *The Diagnosticity Condition: A Dilution Theorem for
-> Persistence-Based Evidence.* Manuscript under review, Foundations of
-> Science.
+> Avramescu, A. N. *The Diagnosticity Condition: A Dilution Theorem for Persistence-Based Evidence.* Manuscript under review, Foundations of Science.
+>
+> Code: Avramescu, A. N. (2026). *diagnosticity-condition* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.23432737
 
 This repository contains the two reproducible synthetic experiments
 behind the paper's results. No real-world data is used anywhere; every
